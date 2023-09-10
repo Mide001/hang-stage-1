@@ -1,9 +1,9 @@
-const { json } = require('body-parser');
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+require('dotenv').config();
+const port = process.env.PORT;
 
-app.get('/get_info', (req, res) => {
+app.get('/api', (req, res) => {
     const slack_name = req.query.slack_name || 'techwithmide';
     const track = req.query.track || 'backend';
 
@@ -15,8 +15,8 @@ app.get('/get_info', (req, res) => {
     const utcTimeStr = utcTime.toISOString();
 
 
-    const githubFileUrl = 'https://github.com/username/repo/blob/main/file_name.ext';
-    const githubRepoUrl = 'https://github.com/username/repo';
+    const githubFileUrl = 'https://github.com/Mide001/hang-stage-1/blob/main/server.js';
+    const githubRepoUrl = 'https://github.com/Mide001/hang-stage-1';
 
     const response = {
         slack_name: slack_name,
@@ -37,4 +37,3 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })
 
-// http://example.com/api?slack_name=example_name&track=backend
