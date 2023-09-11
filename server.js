@@ -12,7 +12,6 @@ app.get("/api", (req, res) => {
   });
 
   const currentTime = new Date();
-  const utcTime = new Date(currentTime.getTime() + 2 * 60 * 1000); // Add 2 minutes to UTC time
   const utcTimeStr = new Date().toISOString().replace(/\.\d{3}/, '');
 
 
